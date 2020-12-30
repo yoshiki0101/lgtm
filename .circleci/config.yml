@@ -7,7 +7,7 @@ jobs:
             - checkout
             - restore_cache:
                 key: deps-{{ checksum "requirements.lock"}}
-            -run:
+            - run:
                 command: |
                     pip install --user -r requirements.lock
             - save_chache:
@@ -29,7 +29,7 @@ workflows:
     version: 2
     all:
         jobs:
-            - setup_dependancies
+            - setup_dependencies
             - test:
                 requires:
                     - setup_dependencies
